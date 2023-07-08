@@ -1,26 +1,35 @@
 import kotlin.math.max
-fun main() {
-  val cars = arrayOf("Volvo", "BMW", "Ford", "Mazda")
-  var x = "pala"
-  var y = "pata"
-  var r = OSA(x,y)
-  for (x in cars) {
-    println(x)
-  }
-  println(r)
-}
+
+/* Nombre: esPalabraValida
+ * Decripción: Este método recibe una palabra y verifica que no haya
+ * alguna discrepancia o caracter especial en ella
+ * Descripción: El método toma como único parámetro un String y retorna un Boolean
+ * Precondición: palabra != null
+ * Postcondición: \result == true || \result == false
+ */
 fun esPalabraValida (palabra: String): Boolean {
+	if (palabra.length == 0) {
+		return false
+	}
     for (i in palabra) {
-        var  codigo = i.toInt()
-        if (97 <= codigo && codigo <= 122) {
-            return true
-        } else if (i == "ñ") {
-            return true
-        } else {
-            return false
+        var  codigo = i.hashCode()
+        if (codigo < 97 || 122 < codigo) {
+        	if (i.toString() != "ñ") {
+        		return false
+        	} 
         }
     }
+    return true
 }
+
+/* Nombre: OSA(Optimal string alignment distance)
+ * Decripción: Este método permite saber cuantas operaciones son necesarias
+ * para convertir la cadena1 en la cadena2. Las operaciones a usar son eliminar,
+ * inserción, sustitución y transposición  
+ * Descripción de los parámetros: El método toma dos parámetros de tipo String y retorna un valor de tipo Int
+ * Precondición: cadena1 != null && cadena2 != null
+ * Postcondición: \result >= 0
+ */
 fun OSA2(cadena1: String, cadena2: String): Int {
 
     var d = Array(cadena1.length+1){Array(cadena2.length+1){0}}
@@ -51,6 +60,15 @@ fun OSA2(cadena1: String, cadena2: String): Int {
     */
     return d[cadena1.length][cadena2.length]
 }
+
+/* Nombre: OSA(Optimal string alignment distance)
+ * Decripción: Este método permite saber cuantas operaciones son necesarias
+ * para convertir la cadena1 en la cadena2. Las operaciones a usar son eliminar,
+ * inserción, sustitución y transposición  
+ * Descripción de los parámetros: El método toma dos parámetros de tipo String y retorna un valor de tipo Int
+ * Precondición: cadena1 != null && cadena2 != null
+ * Postcondición: \result >= 0
+ */
 fun OSA(cadena1: String, cadena2: String): Int {
 
     var d = Array(cadena1.length+1){Array(cadena2.length+1){0}}
@@ -122,6 +140,14 @@ fun DLD(cadena1: String, cadena2: String): Int {
 }
 */
 
+
+/* Nombre: min
+ * Decripción: Este método recibe un arreglo de numeros y 
+ * devolvera el número con menor valor
+ * Descripción de los parámetros: El método toma como único parámetro un String
+ * Precondición: A.size > 0
+ * Postcondición: \result >= 0 && (\forall int i; 0 <= i < A.size; A[i] >= \result)
+ */
 fun min (A: Array<Int>): Int {
 	var x = A[0] 
     for (i in A) {
