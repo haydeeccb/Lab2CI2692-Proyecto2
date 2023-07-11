@@ -14,3 +14,8 @@ vaso
 pendrive
 cuaderno
 otoño
+ventana
+cortina
+ojo
+raton
+papel
