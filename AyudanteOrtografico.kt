@@ -334,7 +334,7 @@ class AyudanteOrtografico {
 	/* Nombre: generarArchivoSalida
  	 * Decripción: Este procedimiento recibe un foutput: String y un arreglo sugerenciasCompleta: Array<String> y genera un archivo
  	 * de tecto de nombre foutput y con el contenido de dicho arreglo. En dicho archivo se coloca en cada línea una palabra válida
- 	 * que no pertenece al diccionario, seguida de cuatro palabras válidas sugeridas pues tienen la menor distancia Damerau-Levenshtein 
+ 	 * que no pertenece al diccionario, seguida de cuatro palabras válidas sugeridas que tienen la menor distancia Damerau-Levenshtein 
  	 * respecto a la palabra que no pertenece
 	 * Descripción de los parámetros: foutput corresponde al nombre del archivo de texto que se deseea generar y sugerenciasCompleta
 	 * es un arreglo que contiene las palabras que no pertenecen al diccionario seguida de las cuatro sugerencias con menor distancia
