@@ -33,7 +33,6 @@ fun esPalabraValida (palabra: String): Boolean {
 fun OSA2(cadena1: String, cadena2: String): Int {
 
     var d = Array(cadena1.length+1){Array(cadena2.length+1){0}}
-    var minimo = Array(1){0}
     for (i in 0 until cadena1.length+1) {
         d[i][0] = i
     }
@@ -42,11 +41,10 @@ fun OSA2(cadena1: String, cadena2: String): Int {
     }
     for (i in 1 until cadena1.length+1) {
         for (j in 1 until cadena2.length+1) {
-            var cost = 0
             if(cadena1[i-1] == cadena2[j-1]) {
                 d[i][j] = d[i-1][j-1]
             } else {
-                minimo = arrayOf(d[i-1][j-1], d[i][j-1], d[i-1][j])
+                var minimo = arrayOf(d[i-1][j-1], d[i][j-1], d[i-1][j])
                 //println(minimo.contentToString())
                 //println("$i $j")
                 d[i][j] =1 + min(minimo)
@@ -72,7 +70,6 @@ fun OSA2(cadena1: String, cadena2: String): Int {
 fun OSA(cadena1: String, cadena2: String): Int {
 
     var d = Array(cadena1.length+1){Array(cadena2.length+1){0}}
-    var minimo = Array(1){0}
     for (i in 0 until cadena1.length+1) {
         d[i][0] = i
     }
@@ -81,14 +78,14 @@ fun OSA(cadena1: String, cadena2: String): Int {
     }
     for (i in 1 until cadena1.length+1) {
         for (j in 1 until cadena2.length+1) {
-            var cost = 0
+            var cost: Int
             if(cadena1[i-1] == cadena2[j-1]) {
                 cost = 0
                 
             } else {
                 cost = 1
             }
-            minimo = arrayOf(d[i-1][j-1]+cost, d[i][j-1]+1, d[i-1][j]+1)
+            var minimo = arrayOf(d[i-1][j-1]+cost, d[i][j-1]+1, d[i-1][j]+1)
 			if (i > 1 && j > 1 && cadena1[i-1] == cadena2[j-2] && cadena1[i-2] == cadena2[j-1]) {
 				minimo = arrayOf(d[i-2][j-2]) 
 			}
