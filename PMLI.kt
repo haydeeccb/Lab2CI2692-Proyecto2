@@ -1,9 +1,9 @@
 class PMLI(var letra: Char = ' ') {
-    // Creacion del conjunto en donde se guardaran las palabras
+    // Creación del conjunto en donde se guardarán las palabras
     var palabras = ConjuntoPalabras()
 
     /* Nombre: agregarPalabra
-	 * Decripción: Este método se encargara de agregar la palabra al conjunto
+	 * Decripción: Este método se encargará de agregar la palabra al conjunto
      * si cumple con las condiciones.
 	 * Descripción de los parámetros: El método recibe un String
 	 * Precondición : p[0] == letra
@@ -15,7 +15,7 @@ class PMLI(var letra: Char = ' ') {
         }
     }
     /* Nombre: eliminarPalabra
-	 * Decripción: Este método se encargara de eliminar la palabra indicada en el conjunto de palabras
+	 * Decripción: Este método se encargará de eliminar la palabra indicada en el conjunto de palabras
 	 * Descripción de los parámetros: El método recibe un String 
 	 * Precondición: p[0] == letra
 	 * Postcondición: palabra.buscar(p) == false
@@ -27,13 +27,13 @@ class PMLI(var letra: Char = ' ') {
     }
 
     /* Nombre: mostrarPalabra
-	 * Decripción: Este método se encargara de mostrar todas las palabras
+	 * Decripción: Este método se encargará de mostrar todas las palabras
      * que se encuentran en el conjunto
 	 * Precondición: true
-	 * Postcondición: palabras.toString (Impresión de cada palabra en orden lexográfico)
+	 * Postcondición: Se imprime el String palabras.toString (Impresión de cada palabra en orden lexográfico)
 	 */
-    fun mostrarPalabra() {
-        palabras.toString()
+    fun mostrarPalabras() {
+        println(palabras.toString())
     }
 
     /* Nombre: buscarPalabra
