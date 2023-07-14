@@ -12,7 +12,7 @@ import java.io.BufferedReader
  */
 
 // Para probar la clase, el main se borra después
-fun main(args: Array<String>) {
+/*fun main(args: Array<String>) {
 	var fname = args[0]
 	//var finput = args[1]
 	//var foutput = args[2]
@@ -27,7 +27,7 @@ fun main(args: Array<String>) {
 			actualPMLI.mostrarPalabras()
 		}
 	}
-}
+}*/
 
 class AyudanteOrtografico {
 	

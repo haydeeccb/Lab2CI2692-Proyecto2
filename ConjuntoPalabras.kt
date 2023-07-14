@@ -524,7 +524,7 @@ class ListaCircular {
 
 // PARA PROBAR EL PROGRAMA. ESTO SE ELIMINA DESPUÉS
 
-fun main(args: Array<String>) {
+/*fun main(args: Array<String>) {
 	var n = args[0].toInt()
 	println("Se generaran ${n} palabras válidas aleatorias")
 	var palabras = generarPalabrasAleatorias(n)
@@ -541,7 +541,7 @@ fun main(args: Array<String>) {
 
 	// Para probar unión, intersección, resta y vacio
 
-	/*var conjunto2 = ConjuntoPalabras()
+	var conjunto2 = ConjuntoPalabras()
 	for (i in palabras.size/2+1 until palabras.size) {
 		conjunto2.agregar(palabras[i])
 	}
@@ -569,7 +569,7 @@ fun main(args: Array<String>) {
 	println("${x}")
 	println("El conjunto 1 es vacio es ${conjunto1.vacio()}")
 	var conjunto7 = ConjuntoPalabras()
-	println("El conjunto 7 es vacio es ${conjunto7.vacio()}")*/
+	println("El conjunto 7 es vacio es ${conjunto7.vacio()}")
 }
 
 fun generarPalabrasAleatorias(n: Int): Array<String> {
@@ -595,4 +595,4 @@ fun imprimirArreglo(A: Array<String>) {
 	}
 	println(" ")
 
-}
+}*/
