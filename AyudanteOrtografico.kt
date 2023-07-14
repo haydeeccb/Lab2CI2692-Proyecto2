@@ -14,11 +14,19 @@ import java.io.BufferedReader
 // Para probar la clase, el main se borra después
 fun main(args: Array<String>) {
 	var fname = args[0]
-	var finput = args[1]
-	var foutput = args[2]
+	//var finput = args[1]
+	//var foutput = args[2]
 	var ayudantePrueba = AyudanteOrtografico()
 	ayudantePrueba.cargarDiccionario(fname)
-	ayudantePrueba.corregirTexto(finput, foutput)
+	//ayudantePrueba.corregirTexto(finput, foutput)
+	println("Luego de agregar las palabras el diccionario es")
+	println(" ")
+	for (i in 0 until 27) {
+		var actualPMLI = ayudantePrueba.dicc[i]
+		if (actualPMLI.palabras.vacio() == false) {
+			actualPMLI.mostrarPalabras()
+		}
+	}
 }
 
 class AyudanteOrtografico {
