@@ -43,12 +43,15 @@ class AyudanteOrtografico{
         for (i in dicc) {
             var letra = i.letra
             letra = letra.uppercaseChar()
-            println("LETRA $letra")
-            i.mostrarPalabra()
+            println("----------------------- LETRA $letra -----------------------")
+            println("")
+            i.mostrarPalabras()
+            println("")
         }
         println("Fin del Diccionario")
+        println("")
     }
-    // Procedimientos del TAD Ayudante Ortográfico
+// Procedimientos del TAD Ayudante Ortográfico
 
 	/* Nombre: cargarDiccionario
 	 * Decripción: Este procedimiento lee un archivo de texto, verifica que cumpla con el formato correcto y agrega las palabras
@@ -83,6 +86,7 @@ class AyudanteOrtografico{
 				}
 			}
 		}
+		println("El diccionario fue cargado al ayudante ortográfico")
 	}
 
 	/* Nombre: corregirTexto
@@ -138,6 +142,7 @@ class AyudanteOrtografico{
 			k = k+4
 		}
 		generarArchivoSalida(foutput, sugerenciasCompleta)
+		println("El archivo de corrección ${foutput} fue generado")
 	}
 
 	// Procedimientos adicionales
@@ -188,24 +193,27 @@ class AyudanteOrtografico{
  	 * Postcondición: \result.size >= 0 && (\forall int i; 0 <= i && i < \result.size; \forall int j; 0 <= j && j < \result[i].size; ('a' <= \result[i][j] && \result[i][j] <= z) || \result[i][j] == 'ñ'))
  	 */
 	fun obtenerPalabrasValidasArchivo(A: String): Array<String> {
-		var i = 0
-    	// Se cuenta la cantidad de palabras válidas del archivo
+    	var conjuntoPalabras = ConjuntoPalabras()
     	File(A).forEachLine {line ->
-    		if (esPalabraValida(line) == true) {
-    			i++
-    		}
+        	var n = line.length
+        	var palabra = ""
+        	for (i in 0 until n) {
+            	var caracter = line[i]
+            	if (('a' <= caracter && caracter <= 'z') || caracter == 'ñ') {
+                	palabra = palabra + caracter.toString()
+                	if (i == n-1) {
+                    	conjuntoPalabras.agregar(palabra)
+                    	palabra = ""
+                	}
+            	} else {
+                	if (palabra.length > 0) {
+                    	conjuntoPalabras.agregar(palabra)
+                    	palabra = ""
+                	}
+            	}
+        	}
     	}
-    	var numeroPalabrasValidas = i
-    	// Se crea arreglo con tamaño igual al número de palabra válidas
-    	var B = Array(numeroPalabrasValidas){""}
-    	// Rellenamos cada elemento de B con las palabras válidas del texto
-    	i = 0
-    	File(A).forEachLine {line ->
-    		if (esPalabraValida(line) == true) {
-    			B[i] = line
-    			i++
-    		}
-    	}
+    	var B = conjuntoPalabras.obtenerArregloPalabras()
     	return B
 	}
 
@@ -359,7 +367,7 @@ class AyudanteOrtografico{
     	var textoSalida = sugerenciasCompleta[k]
     	k++
     	for (i in k until k+4) {
-    		textoSalida = textoSalida + ", " + sugerenciasCompleta[i]
+    		textoSalida = textoSalida + "," + sugerenciasCompleta[i]
     	}
     	k = k + 4
     	archivoSalida.writeText(textoSalida)
@@ -367,7 +375,7 @@ class AyudanteOrtografico{
     		textoSalida = sugerenciasCompleta[k]
     		k++
     		for (j in k until k+4) {
-    			textoSalida = textoSalida + ", " + sugerenciasCompleta[j]
+    			textoSalida = textoSalida + "," + sugerenciasCompleta[j]
     		}
     		k = k + 4 
         	archivoSalida.appendText("\n"+textoSalida)

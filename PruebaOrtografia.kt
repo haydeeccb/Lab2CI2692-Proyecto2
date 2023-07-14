@@ -64,7 +64,7 @@ fun main() {
 				}
 			}
 			"5" -> {
-				println("El diccionario es")
+				println("El diccionario actual es: ")
 				println(" ")
 				ayudanteOrtografico.imprimirDiccionario()
 			}

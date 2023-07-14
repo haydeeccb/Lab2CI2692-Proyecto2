@@ -26,14 +26,14 @@ class PMLI(var letra: Char = Char.MIN_VALUE) {
         }
     }
 
-    /* Nombre: mostrarPalabra
+    /* Nombre: mostrarPalabras
 	 * Decripción: Este método se encargara de mostrar todas las palabras
      * que se encuentran en el conjunto
 	 * Precondición: true
 	 * Postcondición: palabras.toString (Impresión de cada palabra en orden lexográfico)
 	 */
-    fun mostrarPalabra() {
-        palabras.toString()
+    fun mostrarPalabras() {
+        println(palabras.toString())
     }
 
     /* Nombre: buscarPalabra
