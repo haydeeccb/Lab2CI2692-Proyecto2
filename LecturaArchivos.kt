@@ -8,7 +8,7 @@ fun main(args: Array<String>) {
 
     // Para verificar las funciones de lectura de archivos
 
-	/*var A = verificarYObtenerPalabrasValidasArchivo(args[0])
+	var A = verificarYObtenerPalabrasValidasArchivo(args[0])
 	var B = obtenerPalabrasValidasArchivo(args[0])
 	if (A.size == 0) {
 		println("Hay palabras no válidas en el archivo insertado. No cumple las precondiciones para agregarse a un diccionario. Se aborta el programa")
@@ -18,12 +18,12 @@ fun main(args: Array<String>) {
 	}
 	println(" ")
 	println("Arreglo producto de obtener las palabras válidas del archivo:")
-	imprimirArreglo(B)*/
+	imprimirArreglo(B)
 
     // Para verificar las funciones que obtienen las palabras cercanas
 
     // Iniciando un diccionario
-    var dicc = Array(27, {PMLI()})
+    /*var dicc = Array(27, {PMLI()})
     var k = 0
     for (i in 'a'..'n') {
         dicc[k] = PMLI(i)
@@ -57,7 +57,7 @@ fun main(args: Array<String>) {
     println(" ")
     println("Las 4 palabras con menor distancia a ${palabra} son")
     var E = obtenerPalabrasCercanas(palabra, dicc)
-    imprimirArreglo(E)
+    imprimirArreglo(E)*/
 
 }
 
@@ -91,24 +91,27 @@ fun verificarYObtenerPalabrasValidasArchivo(A: String): Array<String> {
 }
 
 fun obtenerPalabrasValidasArchivo(A: String): Array<String> {
-	var i = 0
-    // Se cuenta la cantidad de palabras válidas del archivo
+    var conjuntoPalabras = ConjuntoPalabras()
     File(A).forEachLine {line ->
-    	if (esPalabraValida(line) == true) {
-    		i++
-    	}
+        var n = line.length
+        var palabra = ""
+        for (i in 0 until n) {
+            var caracter = line[i]
+            if (('a' <= caracter && caracter <= 'z') || caracter == 'ñ') {
+                palabra = palabra + caracter.toString()
+                if (i == n-1) {
+                    conjuntoPalabras.agregar(palabra)
+                    palabra = ""
+                }
+            } else {
+                if (palabra.length > 0) {
+                    conjuntoPalabras.agregar(palabra)
+                    palabra = ""
+                }
+            }
+        }
     }
-    var numeroPalabrasValidas = i
-    // Se crea arreglo con tamaño igual al número de palabra válidas
-    var B = Array(numeroPalabrasValidas){""}
-    // Rellenamos cada elemento de B con las palabras válidas del texto
-    i = 0
-    File(A).forEachLine {line ->
-    	if (esPalabraValida(line) == true) {
-    		B[i] = line
-    		i++
-    	}
-    }
+    var B = conjuntoPalabras.obtenerArregloPalabras()
     return B
 }
 
@@ -187,3 +190,38 @@ fun imprimirArreglo2(A: Array<Pair<Int,String>>) {
         println("( ${A[i].first}, ${A[i].second} ) ")
     }
 }
+
+// Otras versiones de algunas funciones
+
+/*fun obtenerPalabrasValidasArchivo(A: String): Array<String> {
+        var listaPalabras = ListaCircular()
+        File(A).forEachLine {line ->
+            var n = line.length
+            var palabra = ""
+            for (i in 0 until n) {
+                var caracter = line[i]
+                if (('a' <= caracter && caracter <= 'z') || caracter == 'ñ') {
+                    palabra = palabra + caracter.toString()
+                    if (i == n-1) {
+                        listaPalabras.agregarAlFinal(palabra)
+                        palabra = ""
+                    }
+                } else {
+                    if (palabra.length > 0) {
+                        listaPalabras.agregarAlFinal(palabra)
+                        palabra = ""
+                    }
+                }
+            }
+        }
+        var numPalabras = listaPalabras.totalElementos
+        var B = Array(numPalabras, {""})
+        var i = 0
+        var x = listaPalabras.centi?.next 
+        while (x?.value != null) {
+            B[i] = x.value!!
+            i++
+            x = x.next
+        }
+        return B
+    }*/
