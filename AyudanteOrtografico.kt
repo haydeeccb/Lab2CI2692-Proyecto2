@@ -15,11 +15,12 @@ class AyudanteOrtografico{
 	}
 
     /* Nombre: borrarPalabra
-    * Decripción: Este método recibe una palabra y verifica que no haya
-    * alguna discrepancia o caracter especial en ella
+    * Decripción: Este método recibe una palabra, verifica que no haya
+    * alguna discrepancia o caracter especial en ella, para luego 
+    * proceder a eliminarla del PMLI apropiado
     * Descripción: El método toma como único parámetro un String
-    * Precondición: palabra != null
-    * Postcondición: \result == true || \result == false
+    * Precondición: esPalabraValida(p)
+    * Postcondición: (\forall int i; 0 <= i < dicc.size; dicc[i].buscarPalabra(p) == false)
     */
     fun borrarPalabra(p: Strig) {
         var conjuntoDePalabras = PMLI()
@@ -35,11 +36,10 @@ class AyudanteOrtografico{
     }
 
     /* Nombre: imprimirDiccionario
-    * Decripción: Este método recibe una palabra y verifica que no haya
-    * alguna discrepancia o caracter especial en ella
-    * Descripción: El método toma como único parámetro un String y retorna un Boolean
-    * Precondición: palabra != null
-    * Postcondición: \result == true || \result == false
+    * Decripción: Este método nos mostrara todas las palabras que contiene 
+    * el diccionario hasta el momento
+    * Precondición: True
+    * Postcondición: (\forall int i; 0 <= i < dicc.size; dicc[i].mostrarPalabra())
     */
     fun imprimirDiccionario() {
         println("Procederemos a mostrar el diccionario de forma alfabetica")
@@ -76,10 +76,10 @@ fun esPalabraValida (palabra: String): Boolean {
 }
 
 
-/* Nombre: esPalabraValida
- * Decripción: Este método recibe una palabra y verifica que no haya
- * alguna discrepancia o caracter especial en ella
- * Descripción: El método toma como único parámetro un String y retorna un Boolean
+/* Nombre: buscarPMLI
+ * Decripción: Este método recibe una palabra, luego verifica cada PMLI que esta en el diccionario.
+ * Si la letra del PMLI es igual a la inicial de la palabra este procede a delvover ese PMLI.
+ * Descripción: El método toma como único parámetro un String y retorna una clase PMLI
  * Precondición: palabra != null
  * Postcondición: \result == true || \result == false
  */
