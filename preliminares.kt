@@ -33,7 +33,7 @@ fun esPalabraValida (palabra: String): Boolean {
 fun OSA2(cadena1: String, cadena2: String): Int {
 
     var d = Array(cadena1.length+1){Array(cadena2.length+1){0}}
-    var minimo = Array(1){0}
+    var minimo: Array<Int>
     for (i in 0 until cadena1.length+1) {
         d[i][0] = i
     }
@@ -42,7 +42,7 @@ fun OSA2(cadena1: String, cadena2: String): Int {
     }
     for (i in 1 until cadena1.length+1) {
         for (j in 1 until cadena2.length+1) {
-            var cost = 0
+            //var cost = 0
             if(cadena1[i-1] == cadena2[j-1]) {
                 d[i][j] = d[i-1][j-1]
             } else {
@@ -72,7 +72,7 @@ fun OSA2(cadena1: String, cadena2: String): Int {
 fun OSA(cadena1: String, cadena2: String): Int {
 
     var d = Array(cadena1.length+1){Array(cadena2.length+1){0}}
-    var minimo = Array(1){0}
+    var minimo: Array<Int>
     for (i in 0 until cadena1.length+1) {
         d[i][0] = i
     }
@@ -81,7 +81,7 @@ fun OSA(cadena1: String, cadena2: String): Int {
     }
     for (i in 1 until cadena1.length+1) {
         for (j in 1 until cadena2.length+1) {
-            var cost = 0
+            var cost: Int
             if(cadena1[i-1] == cadena2[j-1]) {
                 cost = 0
                 

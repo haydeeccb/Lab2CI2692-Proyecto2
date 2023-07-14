@@ -1,6 +1,6 @@
-class PMLI(var letra: Char = '') {
+class PMLI(var letra: Char = Char.MIN_VALUE) {
     // Creacion del conjunto en donde se guardaran las palabras
-    var palabras = ConjuntoPalabra()
+    var palabras = ConjuntoPalabras()
 
     /* Nombre: agregarPalabra
 	 * Decripción: Este método se encargara de agregar la palabra al conjunto
