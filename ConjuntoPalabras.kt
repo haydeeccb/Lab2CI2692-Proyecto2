@@ -307,7 +307,7 @@ class ConjuntoPalabras {
 	override fun toString(): String {
 		var arregloPalabras = obtenerArregloPalabras()
 		if (arregloPalabras.size == 0) {
-			return ""
+			return "No hay palabras en el conjunto"
 		}
 		radixSortPalabras(arregloPalabras)
 		var stringPalabras = arregloPalabras[0]
