@@ -1,8 +1,4 @@
 // Librerías
-import java.io.File
-import java.io.Reader
-import java.io.InputStream
-import java.io.BufferedReader
 import java.util.*
 
 fun main() {
@@ -38,7 +34,7 @@ fun main() {
 				if (palabraEliminar == null) {
 					println("La entrada no es válida. La palabra a eliminar no puede ser vacía")
 				} else {
-					//ayudanteOrtografico.borrarPalabra(palabraEliminar)
+					ayudanteOrtografico.borrarPalabra(palabraEliminar)
 				}
 			}
 			"4" -> {
@@ -56,7 +52,7 @@ fun main() {
 					}
 				}
 			}
-			"5" -> //ayudanteOrtografico.imprimirDiccionario()
+			"5" -> ayudanteOrtografico.imprimirDiccionario()
 			"6" -> salirAplicacion = true
 			else -> {
 				intentos++
