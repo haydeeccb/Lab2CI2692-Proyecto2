@@ -30,7 +30,6 @@ fun main() {
 					println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
 				} else {
 					ayudanteOrtografico.cargarDiccionario(fname)
-					println("El diccionario fue cargado al ayudante ortográfico")
 				}
 			}
 			"3" -> {
@@ -38,13 +37,8 @@ fun main() {
 				var palabraEliminar = readLine()
 				if (palabraEliminar == null) {
 					println("La entrada no es válida. La palabra a eliminar no puede ser vacía")
-				} else if (esPalabraValida(palabraEliminar) == false) {
-					println("La palabra ingresada no es una palabra válida")
-					println("Las palabras válidas deben escribirse en minúscula, sin tildes y con las letras del alfabeto castellano: de la 'a' a la 'z' incluyendo la 'ñ'")
-					println("No se admiten espacios ni signos de puntuación")
 				} else {
 					//ayudanteOrtografico.borrarPalabra(palabraEliminar)
-					println("La palabra ${palabraEliminar} fue eliminada del diccionario")
 				}
 			}
 			"4" -> {
@@ -59,15 +53,10 @@ fun main() {
 						println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
 					} else {
 						ayudanteOrtografico.corregirTexto(finput, foutput)
-						println("El archivo de corrección ${foutput} ya fue generado")
 					}
 				}
 			}
-			"5" -> {
-				println("El diccionario es")
-				println(" ")
-				//ayudanteOrtografico.imprimirDiccionario()
-			}
+			"5" -> //ayudanteOrtografico.imprimirDiccionario()
 			"6" -> salirAplicacion = true
 			else -> {
 				intentos++
