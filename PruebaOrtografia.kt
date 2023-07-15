@@ -5,6 +5,7 @@ fun main() {
 	var salirAplicacion = false
 	var intentos = 0
 	var ayudanteOrtografico = AyudanteOrtografico()
+	var creoUnAyudante = false
 	println("Bienvenido al programa de ayudante ortográfico")
 	println(" ")
 	while (salirAplicacion == false && intentos < 3) {
@@ -21,49 +22,77 @@ fun main() {
 		when(accion) {
 			"1" -> {
 				ayudanteOrtografico = AyudanteOrtografico()
-				println("Fue creado un nuevo ayudante ortográfico")
+				if (creoUnAyudante == false) {
+					println("Fue creado un nuevo ayudante ortográfico")
+					creoUnAyudante = true
+				} else {
+					println("El ayudante ortográfico creado anteriormente ahora fue reemplazado por uno nuevo")
+				}
 				println(" ")
 			}			
 			"2" -> {
-				print("Por favor ingrese el nombre del archivo a cargar: ")
-				var fname = readLine()
-				if (fname == null || fname.length == 0) {
-					println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
-					println("")
+				if (creoUnAyudante == false) {
+					println("Aún no se ha creado un ayudante ortográfico, por lo que esta opción no es válida")
+					println("Para poder emplear esta opción, por favor cree primero un ayudante ortográfico usando la opción 1")
 				} else {
-					ayudanteOrtografico.cargarDiccionario(fname)
-				}
-				println(" ")
-			}
-			"3" -> {
-				print("Por favor ingrese la palabra a eliminar: ")
-				var palabraEliminar = readLine()
-				if (palabraEliminar == null || palabraEliminar.length == 0) {
-					println(" ")
-					println("La entrada no es válida. La palabra a eliminar no puede ser vacía")
-				} else {
-					println(" ")
-					ayudanteOrtografico.borrarPalabra(palabraEliminar)
-				}
-				println(" ")
-			}
-			"4" -> {
-				print("Por favor ingrese el nombre del archivo a corregir: ")
-				var finput = readLine()
-				if (finput == null || finput.length == 0) {
-					println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
-				} else {
-					print("Por favor ingrese el nombre que debe tener el archivo de corrección generado por el programa: ")
-					var foutput = readLine()
-					if (foutput == null || foutput.length == 0) {
+					print("Por favor ingrese el nombre del archivo a cargar: ")
+					var fname = readLine()
+					if (fname == null || fname.length == 0) {
 						println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
+						println("")
 					} else {
-						ayudanteOrtografico.corregirTexto(finput, foutput)
+						ayudanteOrtografico.cargarDiccionario(fname)
 					}
 				}
 				println(" ")
 			}
-			"5" -> ayudanteOrtografico.imprimirDiccionario()
+			"3" -> {
+				if (creoUnAyudante == false) {
+					println("Aún no se ha creado un ayudante ortográfico, por lo que esta opción no es válida")
+					println("Para poder emplear esta opción, por favor cree primero un ayudante ortográfico usando la opción 1")
+				} else {
+					print("Por favor ingrese la palabra a eliminar: ")
+					var palabraEliminar = readLine()
+					if (palabraEliminar == null || palabraEliminar.length == 0) {
+						println(" ")
+						println("La entrada no es válida. La palabra a eliminar no puede ser vacía")
+					} else {
+						println(" ")
+						ayudanteOrtografico.borrarPalabra(palabraEliminar)
+					}
+				}
+				println(" ")
+			}
+			"4" -> {
+				if (creoUnAyudante == false) {
+					println("Aún no se ha creado un ayudante ortográfico, por lo que esta opción no es válida")
+					println("Para poder emplear esta opción, por favor cree primero un ayudante ortográfico usando la opción 1")
+				} else {
+					print("Por favor ingrese el nombre del archivo a corregir: ")
+					var finput = readLine()
+					if (finput == null || finput.length == 0) {
+						println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
+					} else {
+						print("Por favor ingrese el nombre que debe tener el archivo de corrección generado por el programa: ")
+						var foutput = readLine()
+						if (foutput == null || foutput.length == 0) {
+							println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
+						} else {
+							ayudanteOrtografico.corregirTexto(finput, foutput)
+						}
+					}
+				}
+				println(" ")
+			}
+			"5" -> {
+				if (creoUnAyudante == false) {
+					println("Aún no se ha creado un ayudante ortográfico, por lo que esta opción no es válida")
+					println("Para poder emplear esta opción, por favor cree primero un ayudante ortográfico usando la opción 1")
+					println(" ")
+				} else {
+					ayudanteOrtografico.imprimirDiccionario()
+				}
+			}
 			"6" -> salirAplicacion = true
 			else -> {
 				intentos++

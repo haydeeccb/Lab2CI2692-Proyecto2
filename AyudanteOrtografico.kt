@@ -95,23 +95,22 @@ class AyudanteOrtografico {
         	totalPalabras = totalPalabras + dicc[k].palabras.totalElementos
     	}
     	if (totalPalabras == 0) {
-    		println("El diccionario está vacío, no se puede corregir el texto")
     		println(" ")
+    		println("El diccionario está vacío, no se puede corregir el texto")
     		return
     	}
 		var arregloPalabrasValidas = obtenerPalabrasValidasArchivo(finput)
 		if (arregloPalabrasValidas.size == 0) {
+			println(" ")
 			println("Ninguna de las palabras del archivo insertado es válida, no se puede corregir el texto")
 			println("Una palabra válida debe estar escrita en minúscula, sin tildes y con las letras del alfabeto castellano: de la 'a' a la 'z' incluyendo la 'ñ'")
-			println("Una palabra válida no puede estar acompañada de espacios en blanco o de tabulaciones, signos de puntuación ni otras palabras en la misma línea")
-			println(" ")
 			return
 		}
 		var palabrasNoPertenecen = obtenerPalabrasNoPertenecen(arregloPalabrasValidas)
 		var numPalabras = palabrasNoPertenecen.size
 		if (numPalabras == 0) {
-			println("Todas las palabras del archivo insertado pertenecen al diccionario, no hay sugerencias")
 			println(" ")
+			println("Todas las palabras del archivo insertado pertenecen al diccionario, no hay sugerencias")
 			return
 		}
 		var sugerenciasCompleta = Array(numPalabras*5, {""})
@@ -126,6 +125,7 @@ class AyudanteOrtografico {
 			k = k+4
 		}
 		generarArchivoSalida(foutput, sugerenciasCompleta)
+		println(" ")
 		println("El archivo de corrección ${foutput} fue generado")
 	}
 
