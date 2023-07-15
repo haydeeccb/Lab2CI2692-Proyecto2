@@ -46,12 +46,12 @@ fun main() {
 				println(" ")
 			}
 			"4" -> {
-				println("Por favor ingrese el nombre del archivo a corregir")
+				print("Por favor ingrese el nombre del archivo a corregir: ")
 				var finput = readLine()
 				if (finput == null) {
 					println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
 				} else {
-					println("Por favor ingrese el nombre que debe tener el archivo de corrección generado por el programa")
+					print("Por favor ingrese el nombre que debe tener el archivo de corrección generado por el programa: ")
 					var foutput = readLine()
 					if (foutput == null) {
 						println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
