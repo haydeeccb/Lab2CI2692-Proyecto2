@@ -40,6 +40,7 @@ fun main() {
 				if (palabraEliminar == null) {
 					println("La entrada no es válida. La palabra a eliminar no puede ser vacía")
 				} else {
+					println(" ")
 					ayudanteOrtografico.borrarPalabra(palabraEliminar)
 				}
 				println(" ")
@@ -55,7 +56,6 @@ fun main() {
 					if (foutput == null) {
 						println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
 					} else {
-						println(" ")
 						ayudanteOrtografico.corregirTexto(finput, foutput)
 					}
 				}
