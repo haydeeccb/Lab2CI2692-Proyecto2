@@ -19,11 +19,13 @@ fun main() {
 			"1" -> {
 				ayudanteOrtografico = AyudanteOrtografico()
 				println("Fue creado un nuevo ayudante ortográfico")
+				println("")
 			}			
 			"2" -> {
 				var fname = readLine()
 				if (fname == null) {
 					println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
+					println("")
 				} else {
 					ayudanteOrtografico.cargarDiccionario(fname)
 				}
