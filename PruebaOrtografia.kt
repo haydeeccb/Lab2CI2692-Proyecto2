@@ -35,7 +35,7 @@ fun main() {
 				println(" ")
 			}
 			"3" -> {
-				println("Por favor ingrese la palabra a eliminar")
+				print("Por favor ingrese la palabra a eliminar: ")
 				var palabraEliminar = readLine()
 				if (palabraEliminar == null) {
 					println("La entrada no es válida. La palabra a eliminar no puede ser vacía")
@@ -55,6 +55,7 @@ fun main() {
 					if (foutput == null) {
 						println("El nombre ingresado no es válido. El nombre del archivo no puede ser vacío")
 					} else {
+						println(" ")
 						ayudanteOrtografico.corregirTexto(finput, foutput)
 					}
 				}

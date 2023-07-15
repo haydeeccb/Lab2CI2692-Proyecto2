@@ -40,8 +40,11 @@ class ConjuntoPalabras {
 		if (x != null) {
 			contenido[i].eliminar(x)
 			totalElementos--
-			ajustarTabla()	
+			println("Palabra eliminada del diccionario de forma exitosa")
+			ajustarTabla()
+			return
 		}
+		println("La palabra ingresada no se encuentra en el diccionario")
 	}
 
 	/* Nombre: extraer
