@@ -51,11 +51,11 @@ class AyudanteOrtografico {
 	fun cargarDiccionario(fname: String) {
 		var arregloPalabrasValidas = verificarYObtenerPalabrasValidasArchivo(fname)
 		if (arregloPalabrasValidas.size == 0) {
+			println(" ")
 			println("El archivo insertado no cumple las precondiciones para agregarse a un diccionario")
 			println("Al diccionario únicamente se pueden agregar palabras en minúscula, sin tildes y con las letras del alfabeto castellano: de la 'a' a la 'z' incluyendo la 'ñ'")
 			println("Un archivo para cargar en el diccionario sólo puede contener una palabra válida por línea")
 			println("Un archivo para cargar en el diccionario no puede contener: palabras inválidas, signos de puntuación, saltos de línea, espacios en blanco o espacios de tabulaciones")
-			println(" ")
 			return 
 		}
 		var m = arregloPalabrasValidas.size
@@ -69,6 +69,7 @@ class AyudanteOrtografico {
 				}
 			}
 		}
+		println(" ")
 		println("El diccionario fue cargado al ayudante ortográfico")
 	}
 
